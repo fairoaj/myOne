@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+}
+
+.title-bar {
+    background: linear-gradient(to bottom, #c68bee 39%, #e9e9e9 70%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#8bc0df', endColorstr='#e9e9e9', GradientType=0);
+    background-position: center bottom;
+    background-repeat: repeat-x;
+}
+
+.contant1 {
+    height: 100%;
+}
+
+.contant2 {
+    height: 100%;
+}
+
+.footer {
+    height: 100%;
+    background-color: rgb(233, 225, 228);
+}
+
+.main {
+    border: 2px solid;
+}
+
+.site-card-border-less-wrapper {
+    align-items: center;
+    padding: 30px;
+}
+
+.Growing {
+    background-color: rgb(183, 209, 221);
+}
+
+.Growing-detailes {}
+
+.label-success {
+    width: 200px;
+    background-color: rgb(36, 153, 36);
+    border-radius: 50px;
+    border: outset;
+}
+
+.label-danger {
+    width: 200px;
+    background-color: rgb(204, 29, 6);
+    border-radius: 50px;
+    border: outset;
+}
+
+.label-primary {
+    width: 200px;
+    background-color: rgb(48, 45, 230);
+    border-radius: 50px;
+    border: outset;
+}
+
+ul {
+    list-style: none;
+}
+
+.Last-footer {}
+
+.card-box {
+    width: 100%;
+}
+
+.select-option {
+    width: 100%;
+}

@@ -1,0 +1,101 @@
+[{
+        "id": 1,
+        "departure": "Jaffna"
+    },
+    {
+        "id": 2,
+        "departure": "Batticaloa"
+    },
+    {
+        "id": 3,
+        "departure": "Ampara"
+    },
+    {
+        "id": 4,
+        "departure": "Trincomalee"
+    },
+    {
+        "id": 5,
+        "departure": "Mannar"
+    },
+    {
+        "id": 6,
+        "departure": "Hatton"
+    },
+    {
+        "id": 7,
+        "departure": "Badulla"
+    },
+    {
+        "id": 8,
+        "departure": "Matara"
+    },
+    {
+        "id": 9,
+        "departure": "Anuradhapura"
+    },
+    {
+        "id": 10,
+        "departure": "Polannaruwa"
+    },
+    {
+        "id": 11,
+        "departure": "Hambantota"
+    },
+    {
+        "id": 12,
+        "departure": "Kilinochi"
+    },
+    {
+        "id": 13,
+        "departure": "Vavuniya"
+    },
+    {
+        "id": 14,
+        "departure": "Mullaiththivu"
+    },
+    {
+        "id": 15,
+        "departure": "Gampaha"
+    },
+    {
+        "id": 16,
+        "departure": "Kalutara"
+    },
+    {
+        "id": 17,
+        "departure": "Galle"
+    },
+    {
+        "id": 18,
+        "departure": "Matale"
+    },
+    {
+        "id": 19,
+        "departure": "NuwaraEliya"
+    },
+    {
+        "id": 20,
+        "departure": "Moneragala"
+    },
+    {
+        "id": 21,
+        "departure": "Kegalle"
+    },
+    {
+        "id": 22,
+        "departure": "Ratnapura"
+    },
+    {
+        "id": 23,
+        "departure": "Kuruenegala"
+    },
+    {
+        "id": 24,
+        "departure": "Puttalam"
+    },
+    {
+        "id": 25,
+        "departure": "Colombo"
+    }
+]
