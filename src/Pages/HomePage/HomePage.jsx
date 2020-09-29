@@ -1,0 +1,184 @@
+import React, { useState } from "react";
+import { Grid, TextField } from "@material-ui/core";
+import { Tooltip } from "antd";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+
+import "./style.css";
+
+const options = [
+  { value: "Jaffna", label: "Jaffna" },
+  { value: "Puttalam", label: "Puttalam" },
+  { value: "Kurunegala", label: "Kurunegala" },
+  { value: "Colombo", label: "Colombo" },
+  { value: "Polonnaruwa", label: "Polonnaruwa" },
+  { value: "Galle", label: "Galle" },
+  { value: "Matara", label: "Matara" },
+  { value: "Kandy", label: "Kandy" },
+  { value: "Badulla", label: "Badulla" },
+  { value: "Trincomalee", label: "Trincomalee" },
+  { value: "Nuwara Eliya", label: "Nuwara Eliya" },
+  { value: "Ampara", label: "Ampara" },
+].sort((a, b) => {
+  var x = a.value.toLowerCase();
+  var y = b.value.toLowerCase();
+  if (x < y) {
+    return -1;
+  }
+  if (x > y) {
+    return 1;
+  }
+  return 0;
+});
+
+export default function HomePage() {
+  const [departure, setDeparture] = useState();
+
+  const [departureEmpty, setDepartureEmpty] = useState({
+    showTooltips: false,
+    focus: false,
+    open: false,
+  });
+  const [arrival, setArrival] = useState();
+  const [arrivalEmpty, setArrivalEmpty] = useState({
+    showTooltips: false,
+    focus: false,
+    open: false,
+  });
+  const [journeyTime, setJourneyTime] = useState("");
+  const [journeyEmpty, setJourneyEmpty] = useState({
+    showTooltips: false,
+    focus: false,
+    open: false,
+  });
+
+  const handleSubmit = () => {
+    if (!departure) {
+      setDepartureEmpty({ showTooltips: true, focus: true, open: true });
+      return;
+    } else if (!arrival) {
+      setArrivalEmpty({ showTooltips: true, focus: true, open: true });
+      return;
+    } else if (!journeyTime) {
+      setJourneyEmpty({ showTooltips: true, focus: true, open: true });
+      return;
+    }
+
+    window.location = "/checkout";
+  };
+
+  return (
+    <div className="container">
+      <div className="container__logo">
+        <a href="/" className="container__link">
+          <img
+            className="container__image"
+            src={require("../../assets/app-logo.png")}
+            alt="Logo"
+          />
+
+          <p className="container__link-text">BusBooking.lk</p>
+        </a>
+      </div>
+
+      {/* <div className="travels">
+        <h1>Travel to</h1>
+      </div> */}
+
+      <div className="booking-form">
+        <h2 className="booking-form__heading">
+          The simplest way to book your bus tickets in Sri Lanka
+        </h2>
+        <div className="booking-form__container">
+          <Grid container spacing={1}>
+            <Grid item sm={3} xs={12}>
+              <p style={{ color: "#777", fontWeight: "600" }}>FROM</p>
+              <Tooltip
+                placement="left"
+                onVisibleChange={() =>
+                  setDepartureEmpty({ showTooltips: false })
+                }
+                visible={departureEmpty.showTooltips}
+                title="Please fill out this field"
+              >
+                <Autocomplete
+                  //open={departureEmpty.open}
+                  //value={departure}
+                  onChange={(event, newValue) => setDeparture(newValue)}
+                  options={options}
+                  getOptionLabel={(option) => option.label}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      focused={departureEmpty.focus}
+                      placeholder="Enter your departure station"
+                      variant="outlined"
+                    />
+                  )}
+                />
+              </Tooltip>
+            </Grid>
+            <Grid item sm={3} xs={12}>
+              <p style={{ color: "#777", fontWeight: "600" }}>TO</p>
+              <Tooltip
+                placement="left"
+                onVisibleChange={() => setArrivalEmpty({ showTooltips: false })}
+                visible={arrivalEmpty.showTooltips}
+                title="Please fill out this field"
+              >
+                <Autocomplete
+                  //open={arrivalEmpty.open}
+                  //value={arrival}
+                  onChange={(event, newValue) => setArrival(newValue)}
+                  options={options}
+                  getOptionLabel={(option) => option.label}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      value={arrival}
+                      onChange={(e) => setArrival(e.target.value)}
+                      focused={arrivalEmpty.focus}
+                      placeholder="Enter your arrival station"
+                      variant="outlined"
+                    />
+                  )}
+                />
+              </Tooltip>
+            </Grid>
+            <Grid item sm={3} xs={12}>
+              <p style={{ color: "#777", fontWeight: "600" }}>JOURNEY DATE</p>
+              <Tooltip
+                placement="left"
+                onVisibleChange={() => setJourneyEmpty({ showTooltips: false })}
+                visible={journeyEmpty.showTooltips}
+                title="Please select the journey date"
+              >
+                <TextField
+                  value={journeyTime}
+                  onChange={(e) => setJourneyTime(e.target.value)}
+                  focused={journeyEmpty.focus}
+                  fullWidth
+                  variant="outlined"
+                  type="date"
+                  placeholder="Select journey date"
+                />
+              </Tooltip>
+            </Grid>
+            <Grid item sm={3} xs={12}>
+              <p style={{ color: "#777", fontWeight: "600" }}>Action</p>
+              <button
+                onClick={handleSubmit}
+                type="submit"
+                className="booking-form__btn"
+              >
+                Find Buses
+              </button>
+            </Grid>
+          </Grid>
+        </div>
+        <a className="booking-form__link" href="#">
+          Need Help?
+        </a>
+      </div>
+    </div>
+  );
+}
