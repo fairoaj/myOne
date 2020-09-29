@@ -35,9 +35,8 @@
     background-color: rgb(183, 209, 221);
 }
 
-.Growing-detailes {}
-
 .label-success {
+    font-size: 25px;
     width: 200px;
     background-color: rgb(36, 153, 36);
     border-radius: 50px;
@@ -45,6 +44,7 @@
 }
 
 .label-danger {
+    font-size: 25px;
     width: 200px;
     background-color: rgb(204, 29, 6);
     border-radius: 50px;
@@ -52,6 +52,7 @@
 }
 
 .label-primary {
+    font-size: 25px;
     width: 200px;
     background-color: rgb(48, 45, 230);
     border-radius: 50px;
@@ -70,4 +71,60 @@ ul {
 
 .select-option {
     width: 100%;
+}
+
+.Growing {
+    margin-top: 130px;
+    height: 180px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.growing-amount {
+    display: flex;
+    justify-content: space-around;
+    gap: 200px;
+}
+
+.booking-detailes {
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .growing-amount {
+        gap: 100px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .Growing {
+        margin-top: 170px;
+    }
+    .growing-amount {
+        gap: 20px;
+    }
+    .label-primary {
+        font-size: medium;
+    }
+    .label-danger {
+        font-size: medium;
+    }
+    .label-success {
+        font-size: medium;
+    }
+    .booking-detailes {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #main-footer {
+        display: flex;
+    }
+    .row-wrap {
+        margin-left: 50px;
+    }
 }

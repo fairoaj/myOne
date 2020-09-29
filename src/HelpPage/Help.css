@@ -9,3 +9,9 @@
 .help-card {
     margin-top: 40px;
 }
+
+@media only screen and (max-width: 600px) {
+    .help-card {
+        width: 300px;
+    }
+}

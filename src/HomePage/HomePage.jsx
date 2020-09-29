@@ -167,7 +167,7 @@ export default function HomePage() {
         <h3 style={{ fontSize: 20 }}>
           Plan journey, Reserve bus seats, Reach destination.
         </h3>
-        <div style={{ marginLeft: 200, marginRight: 200 }}>
+        <div className="booking-detailes">
           <p>
             We provide full fledged online bus booking platform to buy and sell
             bus seats. The passenger can purchase bus tickets online and in
@@ -175,7 +175,7 @@ export default function HomePage() {
             details of travel will be be sent.
           </p>
         </div>
-        <div style={{ marginLeft: 200, marginRight: 200 }}>
+        <div className="booking-detailes">
           <p>
             With the efficient bus reservation system from BusSeat.lk, plan your
             journey early, save your valuable time in buying bus tickets, avoid
@@ -199,7 +199,12 @@ export default function HomePage() {
           }}
         >
           {Imagedata.slice(0, 4).map((item) => (
-            <img style={{ width: 100 }} src={item.img} alt="" />
+            <img
+              className="col-lg-2 col-sm-3 col-md-2 col-xs-12"
+              style={{ width: 100 }}
+              src={item.img}
+              alt=""
+            />
           ))}
         </div>
         <div
@@ -212,7 +217,12 @@ export default function HomePage() {
           }}
         >
           {Imagedata.slice(4, 7).map((item) => (
-            <img style={{ width: 100 }} src={item.img} alt="" />
+            <img
+              className="col-lg-2 col-sm-3 col-md-2 col-xs-12"
+              style={{ width: 100 }}
+              src={item.img}
+              alt=""
+            />
           ))}
         </div>
       </div>
@@ -293,9 +303,9 @@ export default function HomePage() {
         <div className="">
           <div className="" />
           <h2 className="text-center">Why Book with BusSeat?</h2>
-          <div className="gap">
+          <div className="col-lg-12 col-sm-12 col-md-12 col-xs-12">
             <div
-              className="row row-wrap text-center"
+              className=""
               data-gutter={60}
               style={{
                 display: "flex",
@@ -304,15 +314,12 @@ export default function HomePage() {
                 marginLeft: 100,
               }}
             >
-              <div
-                className="col-lg-3 col-sm-3 col-md-3 col-xs-12"
-                style={{ height: 200, width: 150 }}
-              >
+              <div className="" style={{ height: 200, width: 150 }}>
                 <img
                   style={{ width: 100 }}
                   alt="More choices"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRDzVx-rm5FrMJW2i-Sg-XRZyjzFEOomlMCDA&usqp=CAU"
-                  className="img-responsive center-block"
+                  className=""
                 />
                 <h3>
                   <a className="text-darken">More Choices</a>
@@ -322,45 +329,36 @@ export default function HomePage() {
                   your bus.
                 </p>
               </div>
-              <div
-                className="col-lg-3 col-sm-3 col-md-3 col-xs-12"
-                style={{ height: 200, width: 150 }}
-              >
+              <div className="" style={{ height: 200, width: 150 }}>
                 <img
                   style={{ width: 100 }}
                   alt="Customer support service"
                   src="https://www.pinclipart.com/picdir/big/97-971002_headset-icon-clipart.png"
-                  className="img-responsive center-block"
+                  className=""
                 />
                 <h3>
                   <a className="text-darken">Customer Support</a>
                 </h3>
                 <p>We help you to make your journey better.</p>
               </div>
-              <div
-                className="col-lg-3 col-sm-3 col-md-3 col-xs-12"
-                style={{ height: 200, width: 150 }}
-              >
+              <div className="" style={{ height: 200, width: 150 }}>
                 <img
                   style={{ width: 100 }}
                   alt="Best price"
                   src="https://thumbs.dreamstime.com/b/fast-cash-icon-beautiful-meticulously-designed-120048035.jpg"
-                  className="img-responsive center-block"
+                  className=""
                 />
                 <h3>
                   <a className="text-darken">Best Price</a>
                 </h3>
                 <p>We always offer best bus ticket price in the market.</p>
               </div>
-              <div
-                className="col-lg-3 col-sm-3 col-md-3 col-xs-12"
-                style={{ height: 200, width: 150 }}
-              >
+              <div className="" style={{ height: 200, width: 150 }}>
                 <img
                   style={{ width: 100 }}
                   alt="Google map location"
                   src="https://cdn.vox-cdn.com/thumbor/pOMbzDvdEWS8NIeUuhxp23wi_cU=/1400x1400/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/19700731/googlemaps.png"
-                  className="img-responsive center-block"
+                  className=""
                 />
                 <h3>
                   <a className="text-darken">Google Map Location</a>
@@ -377,40 +375,40 @@ export default function HomePage() {
 
       <div
         className="Growing"
-        style={{
-          marginTop: 50,
-          height: 150,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-around",
-        }}
+        // style={{
+        //   marginTop: 130,
+        //   height: 180,
+        //   display: "flex",
+        //   alignItems: "center",
+        //   justifyContent: "space-around",
+        // }}
       >
-        <div>
+        <div className="">
           <div className="Growing-detailes">
             <div className="" />
             <h2 className="text-center">We are growing</h2>
             <div className="">
               <div
-                className="row"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-around",
-                  gap: 200,
-                }}
+                className="growing-amount"
+                // style={{
+                //   display: "flex",
+                //   justifyContent: "space-around",
+                //   gap: 200,
+                // }}
               >
-                <div className="">
+                <div className=" ">
                   <h2 className="text-center">
-                    <span className="label label-success">100+ Schedules</span>
+                    <span className="label-success">100+ Schedules</span>
                   </h2>
                 </div>
-                <div className="">
+                <div className=" ">
                   <h2 className="text-center">
-                    <span className="label label-danger">167+ Places</span>
+                    <span className="label-danger">167+ Places</span>
                   </h2>
                 </div>
-                <div className="">
+                <div className=" ">
                   <h2 className="text-center">
-                    <span className="label label-primary">974,867+ Seats</span>
+                    <span className="label-primary">974,867+ Seats</span>
                   </h2>
                 </div>
               </div>
@@ -547,7 +545,7 @@ export default function HomePage() {
                   marginLeft: 100,
                 }}
               >
-                <div className="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                <div className="col-lg-2 col-md-12 col-sm-12 col-xs-12">
                   <a className="logo" href="/">
                     <img
                       src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSghkcVNB_8fLe7vVLEXR15LM5ZNl8LSSzLTw&usqp=CAU"
@@ -573,7 +571,7 @@ export default function HomePage() {
                     </a>
                   </h1>
                 </div>
-                <div className="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                <div className="col-lg-2 col-md-12 col-sm-12 col-xs-12">
                   <p>
                     <a href="/help">FAQ</a>
                   </p>
@@ -590,7 +588,7 @@ export default function HomePage() {
                     <a href="/terms-and-conditions">Terms and Conditions</a>
                   </p>
                 </div>
-                <div className="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                <div className="col-lg-2 col-md-12 col-sm-12 col-xs-12">
                   <p>
                     <a href="/offers">Offers</a>
                   </p>
@@ -607,7 +605,7 @@ export default function HomePage() {
                     <a href="/service-updates">Service Updates</a>
                   </p>
                 </div>
-                <div className="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                   <h4>Have Questions?</h4>
                   <h4 className="text-color">(+94) 76 676 4848</h4>
                   <h4 className="text-color">info@busseat.lk</h4>
