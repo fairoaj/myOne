@@ -3,6 +3,7 @@ import { Grid, TextField } from "@material-ui/core";
 import { Tooltip } from "antd";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
+import ActionButton from "../../Components/Button/Button";
 import "./style.css";
 
 const options = [
@@ -63,7 +64,7 @@ export default function HomePage() {
       return;
     }
 
-    window.location = "/checkout";
+    window.location = `/checkout/${departure.value}/${arrival.value}/${journeyTime}`;
   };
 
   return (
@@ -165,13 +166,7 @@ export default function HomePage() {
             </Grid>
             <Grid item sm={3} xs={12}>
               <p style={{ color: "#777", fontWeight: "600" }}>Action</p>
-              <button
-                onClick={handleSubmit}
-                type="submit"
-                className="booking-form__btn"
-              >
-                Find Buses
-              </button>
+              <ActionButton text="Find Buses" onClick={handleSubmit} />
             </Grid>
           </Grid>
         </div>

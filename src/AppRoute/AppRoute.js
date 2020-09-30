@@ -8,7 +8,10 @@ export default function AppRoute() {
   return (
     <Router>
       <Route exact path="/" component={HomePage} />
-      <Route path="/checkout" component={CheckoutPage} />
+      <Route
+        path="/checkout/:departure/:arrival/:date"
+        component={CheckoutPage}
+      />
     </Router>
   );
 }

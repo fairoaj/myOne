@@ -1,0 +1,43 @@
+export default [
+  {
+    id: 1,
+    travelName: "AL RASHITH TRAVELS",
+    busType: "Super Luxury (XL)",
+    busNumber: "ND-4401/ND-5214",
+    routeNumber: "48-12",
+    facilities: [
+      { id: 1, name: "Air Condition", icon: "fas fa-thermometer-quarter" },
+      { id: 2, name: "Ajustable Seat", icon: "fas fa-sliders-h" },
+      { id: 3, name: "Charging Point", icon: "fas fa-plug" },
+      { id: 4, name: "Rest Stop", icon: "fas fa-map-marker-alt" },
+      { id: 5, name: "Movie", icon: "fas fa-film" },
+      { id: 6, name: "Cup Holder", icon: "fas fa-mug-hot" },
+      { id: 7, name: "Emegency Exit", icon: "fas fa-external-link-square-alt" },
+    ],
+    price: 1200,
+    isDiscount: true,
+    discount: 50,
+    totalSeat: 50,
+    availableSeat: 4,
+  },
+
+  {
+    id: 2,
+    travelName: "ANAFF TRAVELS",
+    busType: "Super Luxury (M)",
+    busNumber: "ND-5050/ND-5152",
+    routeNumber: "48-12",
+    facilities: [
+      { id: 1, name: "Air Condition", icon: "fas fa-thermometer-quarter" },
+      { id: 2, name: "Ajustable Seat", icon: "fas fa-sliders-h" },
+      { id: 4, name: "Rest Stop", icon: "fas fa-map-marker-alt" },
+      { id: 5, name: "Movie", icon: "fas fa-film" },
+      { id: 7, name: "Emegency Exit", icon: "fas fa-external-link-square-alt" },
+    ],
+    price: 1100,
+    isDiscount: false,
+    discount: 50,
+    totalSeat: 40,
+    availableSeat: 10,
+  },
+];
