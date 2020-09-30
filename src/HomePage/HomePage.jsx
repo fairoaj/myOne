@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "../HomePage/HomePage.css";
 import Imagedata from "../Data/ImageData.json";
 import SelectoptionData from "../Data/SelectoptionData.json";
 import {
-  Form,
   Input,
   Button,
   Select,
@@ -12,6 +11,7 @@ import {
   Space,
   Row,
   Col,
+  Alert,
 } from "antd";
 import {
   CaretRightOutlined,
@@ -21,6 +21,39 @@ import {
 } from "@ant-design/icons";
 import Item from "antd/lib/list/Item";
 import Footer from "../FooterPage/Footer";
+import { Snackbar } from "@material-ui/core";
+import Header from "../HeaderPage/Header";
+import Form from "../FormPage/Form";
+
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import { Grid, TextField } from "@material-ui/core";
+
+import { Tooltip } from "antd";
+
+const options = [
+  { value: "Jaffna", label: "Jaffna" },
+  { value: "Puttalam", label: "Puttalam" },
+  { value: "Kurunegala", label: "Kurunegala" },
+  { value: "Colombo", label: "Colombo" },
+  { value: "Polonnaruwa", label: "Polonnaruwa" },
+  { value: "Galle", label: "Galle" },
+  { value: "Matara", label: "Matara" },
+  { value: "Kandy", label: "Kandy" },
+  { value: "Badulla", label: "Badulla" },
+  { value: "Trincomalee", label: "Trincomalee" },
+  { value: "Nuwara Eliya", label: "Nuwara Eliya" },
+  { value: "Ampara", label: "Ampara" },
+].sort((a, b) => {
+  var x = a.value.toLowerCase();
+  var y = b.value.toLowerCase();
+  if (x < y) {
+    return -1;
+  }
+  if (x > y) {
+    return 1;
+  }
+  return 0;
+});
 
 const layout = {
   labelCol: { span: 8 },
@@ -31,45 +64,191 @@ const tailLayout = {
 };
 
 export default function HomePage() {
-  const { Option } = Select;
+  const [openSnackbar, setOpenSnackbar] = useState(false);
 
-  function onChange(value) {
-    console.log(`selected ${value}`);
-  }
+  const [departure, setDeparture] = useState();
 
-  function onBlur() {
-    console.log("blur");
-  }
+  const [departureEmpty, setDepartureEmpty] = useState({
+    showTooltips: false,
+    focus: false,
+    open: false,
+  });
+  const [arrival, setArrival] = useState();
+  const [arrivalEmpty, setArrivalEmpty] = useState({
+    showTooltips: false,
+    focus: false,
+    open: false,
+  });
+  const [journeyTime, setJourneyTime] = useState("");
+  const [journeyEmpty, setJourneyEmpty] = useState({
+    showTooltips: false,
+    focus: false,
+    open: false,
+  });
 
-  function onFocus() {
-    console.log("focus");
-  }
+  const handleSubmit = () => {
+    if (!departure) {
+      setDepartureEmpty({ showTooltips: true, focus: true, open: true });
+      return;
+    } else if (!arrival) {
+      setArrivalEmpty({ showTooltips: true, focus: true, open: true });
+      return;
+    } else if (!journeyTime) {
+      setJourneyEmpty({ showTooltips: true, focus: true, open: true });
+      return;
+    }
 
-  function onSearch(val) {
-    console.log("search:", val);
-  }
-
-  const onFinish = (values) => {
-    console.log("Success:", values);
+    window.location = "/checkout";
   };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
-  function onChange(date, dateString) {
-    console.log(date, dateString);
-  }
+  // const { Option } = Select;
 
-  let selectdata = [];
-  {
-    SelectoptionData.map((item) => {
-      selectdata.push(<Option value={item.departure}>{item.departure}</Option>);
-    });
-  }
+  // function onChange(value) {
+  //   console.log(`selected ${value}`);
+  // }
+
+  // function onBlur() {
+  //   console.log("blur");
+  // }
+
+  // function onFocus() {
+  //   console.log("focus");
+  // }
+
+  // function onSearch(val) {
+  //   console.log("search:", val);
+  // }
+
+  // const onFinish = (values) => {
+  //   console.log("Success:", values);
+  // };
+
+  // const onFinishFailed = (errorInfo) => {
+  //   console.log("Failed:", errorInfo);
+  // };
+  // function onChange(date, dateString) {
+  //   console.log(date, dateString);
+  // }
+
+  // let selectdata = [];
+  // {
+  //   SelectoptionData.map((item) => {
+  //     selectdata.push(<Option value={item.departure}>{item.departure}</Option>);
+  //   });
+  // }
 
   return (
-    <div className="main">
-      <div className="title-bar">
+    <div>
+      <div className="custom-container">
+        <Snackbar
+          open={openSnackbar}
+          autoHideDuration={6000}
+          onClose={() => setOpenSnackbar(false)}
+        >
+          <Alert onClose={() => setOpenSnackbar(false)} severity="warning">
+            Departure and Arrival should be different!
+          </Alert>
+        </Snackbar>
+        <Header />
+        <div className="booking-form">
+          <h2 className="booking-form__heading">
+            The simplest way to book your bus tickets in Sri Lanka
+          </h2>
+          <div className="booking-form__container">
+            <Grid container spacing={1}>
+              <Grid item sm={3} xs={12}>
+                <p style={{ color: "#777", fontWeight: "600" }}>FROM</p>
+                <Tooltip
+                  placement="left"
+                  onVisibleChange={() =>
+                    setDepartureEmpty({ showTooltips: false })
+                  }
+                  visible={departureEmpty.showTooltips}
+                  title="Please fill out this field"
+                >
+                  <Autocomplete
+                    //open={departureEmpty.open}
+                    //value={departure}
+                    onChange={(event, newValue) => setDeparture(newValue)}
+                    options={options}
+                    getOptionLabel={(option) => option.label}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        focused={departureEmpty.focus}
+                        placeholder="Enter your departure station"
+                        variant="outlined"
+                      />
+                    )}
+                  />
+                </Tooltip>
+              </Grid>
+              <Grid item sm={3} xs={12}>
+                <p style={{ color: "#777", fontWeight: "600" }}>TO</p>
+                <Tooltip
+                  placement="left"
+                  onVisibleChange={() =>
+                    setArrivalEmpty({ showTooltips: false })
+                  }
+                  visible={arrivalEmpty.showTooltips}
+                  title="Please fill out this field"
+                >
+                  <Autocomplete
+                    //open={arrivalEmpty.open}
+                    //value={arrival}
+                    onChange={(event, newValue) => setArrival(newValue)}
+                    options={options}
+                    getOptionLabel={(option) => option.label}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        value={arrival}
+                        onChange={(e) => setArrival(e.target.value)}
+                        focused={arrivalEmpty.focus}
+                        placeholder="Enter your arrival station"
+                        variant="outlined"
+                      />
+                    )}
+                  />
+                </Tooltip>
+              </Grid>
+              <Grid item sm={3} xs={12}>
+                <p style={{ color: "#777", fontWeight: "600" }}>JOURNEY DATE</p>
+                <Tooltip
+                  placement="left"
+                  onVisibleChange={() =>
+                    setJourneyEmpty({ showTooltips: false })
+                  }
+                  visible={journeyEmpty.showTooltips}
+                  title="Please select the journey date"
+                >
+                  <TextField
+                    value={journeyTime}
+                    onChange={(e) => setJourneyTime(e.target.value)}
+                    focused={journeyEmpty.focus}
+                    fullWidth
+                    variant="outlined"
+                    type="date"
+                    placeholder="Select journey date"
+                  />
+                </Tooltip>
+              </Grid>
+              <Grid item sm={3} xs={12}>
+                <p style={{ color: "#777", fontWeight: "600" }}>Action</p>
+                <button
+                  onClick={handleSubmit}
+                  type="submit"
+                  className="booking-form__btn"
+                >
+                  Find Buses
+                </button>
+              </Grid>
+            </Grid>
+          </div>
+        </div>
+      </div>
+
+      {/* <div className="title-bar">
         <div style={{ height: 10 }}></div>
         <Row span={3}>
           <Col span={12} offset={2}>
@@ -160,14 +339,23 @@ export default function HomePage() {
             </div>
           </Col>
         </Row>
-      </div>
+      </div> */}
       <div className="contant1">
-        <h1 style={{ fontWeight: "bold", fontSize: 30 }}>
-          Bus Booking Made Easy and Efficient in Sri Lanka
-        </h1>
-        <h3 style={{ fontSize: 20 }}>
-          Plan journey, Reserve bus seats, Reach destination.
-        </h3>
+        <div style={{}}>
+          <h1
+            style={{
+              fontWeight: "bold",
+              fontSize: 30,
+              marginLeft: 250,
+              marginRight: 150,
+            }}
+          >
+            Bus Booking Made Easy and Efficient in Sri Lanka
+          </h1>
+          <h3 style={{ fontSize: 20, marginLeft: 300, marginRight: 200 }}>
+            Plan journey, Reserve bus seats, Reach destination.
+          </h3>
+        </div>
         <div className="booking-detailes">
           <p>
             We provide full fledged online bus booking platform to buy and sell

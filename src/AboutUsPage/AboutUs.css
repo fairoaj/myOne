@@ -1,0 +1,12 @@
+.Aboutus {
+    display: flex;
+}
+
+.About-main {
+    margin-top: 4rem;
+}
+
+.logoOne {
+    margin-top: 10rem;
+    width: 200px;
+}

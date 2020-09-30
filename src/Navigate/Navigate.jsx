@@ -7,12 +7,20 @@ import OnwerOne from "../BusTravellersComponent/OwneroneComponent/OnwerOne";
 import OnwerTwo from "../BusTravellersComponent/OnwertwoComponent/OnwerTwo";
 import OnwerThree from "../BusTravellersComponent/OnwerThreeComponent/OnwerThree";
 import Contact from "../ContactPage/Contact";
+import Aboutus from "../AboutUsPage/AboutUs";
+import Privacy from "../PrivacyPage/privacy";
 
 export default function Navigation() {
   return (
     <div>
       <BrowserRouter>
         <Switch>
+          <Route path="/Privacy">
+            <Privacy />
+          </Route>
+          <Route path="/Aboutus">
+            <Aboutus />
+          </Route>
           <Route path="/Contact">
             <Contact />
           </Route>

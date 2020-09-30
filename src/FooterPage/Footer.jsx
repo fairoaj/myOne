@@ -17,10 +17,10 @@ export default function Footer() {
           <a href="Contact" className="footer__item--link">
             Contact Us
           </a>
-          <a href="#" className="footer__item--link">
+          <a href="Aboutus" className="footer__item--link">
             About Us
           </a>
-          <a href="#" className="footer__item--link">
+          <a href="Privacy" className="footer__item--link">
             Privacy
           </a>
           <a href="#" className="footer__item--link">
