@@ -20,6 +20,7 @@ import {
   GooglePlusOutlined,
 } from "@ant-design/icons";
 import Item from "antd/lib/list/Item";
+import Footer from "../FooterPage/Footer";
 
 const layout = {
   labelCol: { span: 8 },
@@ -532,89 +533,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="Last-footer">
-        <div id="footer" style={{ marginTop: 50, marginBottom: 60 }}>
-          <footer id="main-footer">
-            <div className="">
-              <div
-                className="row row-wrap"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-around",
-                  marginRight: 100,
-                  marginLeft: 100,
-                }}
-              >
-                <div className="col-lg-2 col-md-12 col-sm-12 col-xs-12">
-                  <a className="logo" href="/">
-                    <img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSghkcVNB_8fLe7vVLEXR15LM5ZNl8LSSzLTw&usqp=CAU"
-                      alt="BusSeat.lk color logo"
-                      title="Logo Color"
-                      height={120}
-                      width={166}
-                    />
-                  </a>
-                  <p className="mb20">Bus ticket booking made easy!</p>
-                  <h1
-                    style={{ display: "flex", justifyContent: "space-around" }}
-                  >
-                    <a href="">
-                      {" "}
-                      <FacebookOutlined />{" "}
-                    </a>
-                    <a href="">
-                      <TwitterOutlined />
-                    </a>
-                    <a href="">
-                      <GooglePlusOutlined />
-                    </a>
-                  </h1>
-                </div>
-                <div className="col-lg-2 col-md-12 col-sm-12 col-xs-12">
-                  <p>
-                    <a href="/help">FAQ</a>
-                  </p>
-                  <p>
-                    <a href="/contact-us">Contact Us</a>
-                  </p>
-                  <p>
-                    <a href="/about-us">About Us</a>
-                  </p>
-                  <p>
-                    <a href="/privacy">Privacy</a>
-                  </p>
-                  <p>
-                    <a href="/terms-and-conditions">Terms and Conditions</a>
-                  </p>
-                </div>
-                <div className="col-lg-2 col-md-12 col-sm-12 col-xs-12">
-                  <p>
-                    <a href="/offers">Offers</a>
-                  </p>
-                  <p>
-                    <a href="/agents">Agents</a>
-                  </p>
-                  <p>
-                    <a href="/bus-operators">Bus Operators</a>
-                  </p>
-                  <p>
-                    <a href="/routes">Routes</a>
-                  </p>
-                  <p>
-                    <a href="/service-updates">Service Updates</a>
-                  </p>
-                </div>
-                <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                  <h4>Have Questions?</h4>
-                  <h4 className="text-color">(+94) 76 676 4848</h4>
-                  <h4 className="text-color">info@busseat.lk</h4>
-                </div>
-              </div>
-            </div>
-          </footer>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }

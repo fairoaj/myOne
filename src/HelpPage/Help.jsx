@@ -8,6 +8,8 @@ import {
   GooglePlusOutlined,
 } from "@ant-design/icons";
 import Column from "antd/lib/table/Column";
+import Header from "../HeaderPage/Header";
+import Footer from "../FooterPage/Footer";
 
 export default function Help() {
   const { Panel } = Collapse;
@@ -103,7 +105,8 @@ export default function Help() {
   );
   return (
     <div>
-      <div className="header-section">
+      <Header />
+      {/* <div className="header-section">
         <h1
           style={{
             display: "flex",
@@ -113,7 +116,7 @@ export default function Help() {
         >
           BusBook.com
         </h1>
-      </div>
+      </div> */}
       <div className="help-contant">
         <Row>
           <Col span={12} offset={6}>
@@ -164,96 +167,8 @@ export default function Help() {
         </Row>
       </div>
 
-      <div className="Last-footer">
-        <div id="footer" style={{ marginTop: 50, marginBottom: 60 }}>
-          <footer id="main-footer">
-            <div className="">
-              <div
-                className="row row-wrap"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-around",
-                  marginRight: 100,
-                  marginLeft: 100,
-                }}
-              >
-                <div className="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                  <a className="logo" href="/">
-                    <img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSghkcVNB_8fLe7vVLEXR15LM5ZNl8LSSzLTw&usqp=CAU"
-                      alt="BusSeat.lk color logo"
-                      title="Logo Color"
-                      height={120}
-                      width={166}
-                    />
-                  </a>
-
-                  <p className="mb20">Bus ticket booking made easy!</p>
-
-                  <h1
-                    style={{ display: "flex", justifyContent: "space-around" }}
-                  >
-                    <a href="">
-                      {" "}
-                      <FacebookOutlined />{" "}
-                    </a>
-                    <a href="">
-                      <TwitterOutlined />
-                    </a>
-                    <a href="">
-                      <GooglePlusOutlined />
-                    </a>
-                  </h1>
-                </div>
-                <div className="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                  <p>
-                    <a href="/help">FAQ</a>
-                  </p>
-                  <p>
-                    <a href="/contact-us">Contact Us</a>
-                  </p>
-                  <p>
-                    <a href="/about-us">About Us</a>
-                  </p>
-                  <p>
-                    <a href="/privacy">Privacy</a>
-                  </p>
-                  <p>
-                    <a href="/terms-and-conditions">Terms and Conditions</a>
-                  </p>
-                </div>
-                <div className="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                  <p>
-                    <a href="/offers">Offers</a>
-                  </p>
-                  <p>
-                    <a href="/agents">Agents</a>
-                  </p>
-                  <p>
-                    <a href="/bus-operators">Bus Operators</a>
-                  </p>
-                  <p>
-                    <a href="/routes">Routes</a>
-                  </p>
-                  <p>
-                    <a href="/service-updates">Service Updates</a>
-                  </p>
-                </div>
-                <div className="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                  <h4>Have Questions?</h4>
-                  <h4 className="text-color">(+94) 76 676 4848</h4>
-                  <h4 className="text-color">info@busseat.lk</h4>
-                </div>
-                <div style={{ display: "flex", gap: 10 }}>
-                  <i class="fa fa-quote-right" style={{ fontSize: 30 }}></i>
-                  <a href="">
-                    <h2 style={{ color: "lightblue" }}>Busbook.com </h2>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </footer>
-        </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );
