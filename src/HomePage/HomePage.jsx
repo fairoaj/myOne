@@ -227,7 +227,7 @@ export default function HomePage() {
           ))}
         </div>
       </div>
-      <div className="footer" style={{ marginTop: 40 }}>
+      <div className="footer1" style={{ marginTop: 40 }}>
         <div className="">
           <div className="" />
           <h2 className="text-center">Multiple Payment Options</h2>
