@@ -36,6 +36,7 @@
   flex-direction: column;
   padding: 2rem;
   border-radius: 3px;
+  margin-top: 4rem;
 }
 
 ::placeholder {

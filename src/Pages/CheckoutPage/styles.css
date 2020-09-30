@@ -55,6 +55,48 @@
 
 .buses-info:hover {
   border: 1.5px solid rgb(16, 111, 155);
+  cursor: pointer;
+}
+
+.travel-route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.circle-wrap {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: rgba(16, 111, 155, 0.514);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgb(16, 111, 155);
+}
+
+.route-line {
+  width: 80%;
+  height: 10px;
+  background-color: rgb(16, 111, 155);
+}
+
+.travel-timedate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.travel-timedate h2,
+.travel-timedate p {
+  margin: 2px;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .bus-info p,
@@ -81,6 +123,11 @@
   color: gray;
   font-size: 1.3rem;
   margin: 8px;
+  transition: all 0.2s;
+}
+
+.fas:hover {
+  transform: scale(1.2);
 }
 
 .payment-info p {

@@ -19,6 +19,9 @@ export default [
     discount: 50,
     totalSeat: 50,
     availableSeat: 4,
+    departureTime: "6:30 PM",
+    arrivalTime: "3:30 AM",
+    travelHours: 9,
   },
 
   {
@@ -39,5 +42,30 @@ export default [
     discount: 50,
     totalSeat: 40,
     availableSeat: 10,
+    departureTime: "9:00 PM",
+    arrivalTime: "4:00 AM",
+    travelHours: 7,
+  },
+
+  {
+    id: 3,
+    travelName: "Casmin TRAVELS",
+    busType: "Super Luxury (M)",
+    busNumber: "ND-2020",
+    routeNumber: "48-12",
+    facilities: [
+      { id: 1, name: "Air Condition", icon: "fas fa-thermometer-quarter" },
+      { id: 4, name: "Rest Stop", icon: "fas fa-map-marker-alt" },
+      { id: 8, name: "Music", icon: "fas fa-music" },
+      { id: 7, name: "Emegency Exit", icon: "fas fa-external-link-square-alt" },
+    ],
+    price: 900,
+    isDiscount: false,
+    discount: 50,
+    totalSeat: 40,
+    availableSeat: 20,
+    departureTime: "9:00 PM",
+    arrivalTime: "4:00 AM",
+    travelHours: 7,
   },
 ];

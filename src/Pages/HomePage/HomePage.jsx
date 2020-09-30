@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Grid, TextField } from "@material-ui/core";
+import { Grid, TextField, Snackbar } from "@material-ui/core";
 import { Tooltip } from "antd";
-import Autocomplete from "@material-ui/lab/Autocomplete";
+import { Autocomplete, Alert } from "@material-ui/lab/";
 
 import ActionButton from "../../Components/Button/Button";
+import Header from "../../Components/Header/Header";
 import "./style.css";
 
 const options = [
@@ -52,6 +53,8 @@ export default function HomePage() {
     open: false,
   });
 
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+
   const handleSubmit = () => {
     if (!departure) {
       setDepartureEmpty({ showTooltips: true, focus: true, open: true });
@@ -62,6 +65,9 @@ export default function HomePage() {
     } else if (!journeyTime) {
       setJourneyEmpty({ showTooltips: true, focus: true, open: true });
       return;
+    } else if (departure.value === arrival.value) {
+      setOpenSnackbar(true);
+      return;
     }
 
     window.location = `/checkout/${departure.value}/${arrival.value}/${journeyTime}`;
@@ -69,7 +75,17 @@ export default function HomePage() {
 
   return (
     <div className="container">
-      <div className="container__logo">
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={6000}
+        onClose={() => setOpenSnackbar(false)}
+      >
+        <Alert onClose={() => setOpenSnackbar(false)} severity="warning">
+          Departure and Arrival should be different!
+        </Alert>
+      </Snackbar>
+      <Header />
+      {/* <div className="container__logo">
         <a href="/" className="container__link">
           <img
             className="container__image"
@@ -79,7 +95,7 @@ export default function HomePage() {
 
           <p className="container__link-text">BusBooking.lk</p>
         </a>
-      </div>
+      </div> */}
 
       {/* <div className="travels">
         <h1>Travel to</h1>
