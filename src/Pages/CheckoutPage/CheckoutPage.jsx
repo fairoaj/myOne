@@ -6,6 +6,7 @@ import { Tooltip } from "antd";
 import ActionButton from "../../Components/Button/Button";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
+import TitleBar from "../../Components/TitleBar/TitleBar";
 
 import BusInfo from "../../Data/BusInfo";
 
@@ -17,11 +18,7 @@ export default function CheckoutPage() {
     <div className="main-container">
       <Header />
 
-      <div className="booking-info">
-        <h2>
-          {departure}-{arrival} | {date}
-        </h2>
-      </div>
+      <TitleBar departure={departure} arrival={arrival} date={date} />
 
       <div className="buses-info">
         {BusInfo.map((item) => (
@@ -86,11 +83,14 @@ export default function CheckoutPage() {
                   <p>
                     Available seats: {`${item.availableSeat}/${item.totalSeat}`}
                   </p>
-                  <ActionButton text="View Seats" />
+                  <ActionButton
+                    text="View Seats"
+                    onClick={() => (window.location = `/seats/${item.id}`)}
+                  />
                 </div>
               </Grid>
             </Grid>
-            <Divider />
+            {!(item.id === BusInfo.length) && <Divider />}
           </>
         ))}
       </div>

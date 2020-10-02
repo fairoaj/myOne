@@ -27,23 +27,6 @@
   margin-left: 5px;
 }
 
-.booking-info {
-  width: 100vw;
-  background-color: rgba(142, 208, 238, 0.575);
-  border: 1px solid rgb(75, 187, 240);
-  border-radius: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-}
-
-.booking-info > h2 {
-  color: rgb(16, 111, 155);
-  font-weight: 200;
-  font-size: 1rem;
-}
-
 .buses-info {
   align-self: center;
   width: 90vw;
@@ -93,10 +76,10 @@
   justify-content: space-between;
 }
 
-.travel-timedate h2,
-.travel-timedate p {
+.travel-timedate h2 {
   margin: 2px;
   color: rgba(0, 0, 0, 0.4);
+  font-size: large;
 }
 
 .bus-info p,

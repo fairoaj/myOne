@@ -74,7 +74,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="container">
+    <div className="custom-container">
       <Snackbar
         open={openSnackbar}
         autoHideDuration={6000}
@@ -110,7 +110,7 @@ export default function HomePage() {
             <Grid item sm={3} xs={12}>
               <p style={{ color: "#777", fontWeight: "600" }}>FROM</p>
               <Tooltip
-                placement="left"
+                placement="bottom"
                 onVisibleChange={() =>
                   setDepartureEmpty({ showTooltips: false })
                 }
@@ -137,7 +137,7 @@ export default function HomePage() {
             <Grid item sm={3} xs={12}>
               <p style={{ color: "#777", fontWeight: "600" }}>TO</p>
               <Tooltip
-                placement="left"
+                placement="bottom"
                 onVisibleChange={() => setArrivalEmpty({ showTooltips: false })}
                 visible={arrivalEmpty.showTooltips}
                 title="Please fill out this field"
@@ -164,7 +164,7 @@ export default function HomePage() {
             <Grid item sm={3} xs={12}>
               <p style={{ color: "#777", fontWeight: "600" }}>JOURNEY DATE</p>
               <Tooltip
-                placement="left"
+                placement="bottom"
                 onVisibleChange={() => setJourneyEmpty({ showTooltips: false })}
                 visible={journeyEmpty.showTooltips}
                 title="Please select the journey date"
