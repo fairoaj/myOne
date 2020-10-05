@@ -37,3 +37,19 @@ h2, h3, h5, .text-hero {
   color: #565656;
   line-height: 1.3em;
 }
+
+.h3 {
+  font-size: 24px;
+  margin-top: 0;
+  font-weight: 400;
+  color: #565656;
+  line-height: 1.3em;
+}
+
+.h5 {
+  font-size: 14px;
+  margin-top: 0;
+  font-weight: 400;
+  color: #565656;
+  line-height: 1.3em;
+}
