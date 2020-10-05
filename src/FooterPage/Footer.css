@@ -2,10 +2,8 @@
     margin-top: 4rem;
 }
 
-.footer {
+.custom-footer {
     display: flex;
-    justify-content: center;
-    padding: 1rem;
 }
 
 .footer__item {
@@ -13,6 +11,8 @@
     flex: 0.25;
     flex-direction: column;
     margin: 5px;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (max-width: 700px) {

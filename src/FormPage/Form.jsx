@@ -5,6 +5,8 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import { Grid, TextField } from "@material-ui/core";
 
 import { Row, Col, Tooltip } from "antd";
+import Header from "../HeaderPage/Header";
+import Footer from "../FooterPage/Footer";
 
 const options = [
   { value: "Jaffna", label: "Jaffna" },
@@ -69,9 +71,11 @@ export default function Form() {
 
   return (
     <div>
+      <Header />
       <div className="Onwerone">
         <Row>
           <Col span={18} offset={3} style={{ borderStyle: "outset" }}>
+            <h5>Book your bus Tickets</h5>
             <div>
               <div className="booking-form__container">
                 <Grid container spacing={1}>
@@ -169,6 +173,9 @@ export default function Form() {
             </div>
           </Col>
         </Row>
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );

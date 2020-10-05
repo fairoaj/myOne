@@ -3,7 +3,7 @@
 }
 
 .custom-container {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -175,6 +175,12 @@ ul {
     display: flex;
     justify-content: space-around;
     gap: 200px;
+}
+
+.booking-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .booking-detailes {

@@ -1,0 +1,23 @@
+.color {
+    color: #565656;
+}
+
+.icon {
+    margin-right: 5px;
+}
+
+.offer-page-head {
+    font-size: 36px;
+    margin-bottom: -10px;
+    font-weight: 400;
+    color: #565656;
+    line-height: 1.3em;
+}
+
+.offer-head {
+    font-size: 24px;
+    margin-top: 50px;
+    font-weight: 400;
+    color: #565656;
+    line-height: 1.3em;
+}

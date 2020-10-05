@@ -341,18 +341,16 @@ export default function HomePage() {
         </Row>
       </div> */}
       <div className="contant1">
-        <div style={{}}>
+        <div className="booking-title" style={{}}>
           <h1
             style={{
               fontWeight: "bold",
               fontSize: 30,
-              marginLeft: 250,
-              marginRight: 150,
             }}
           >
             Bus Booking Made Easy and Efficient in Sri Lanka
           </h1>
-          <h3 style={{ fontSize: 20, marginLeft: 300, marginRight: 200 }}>
+          <h3 style={{ fontSize: 20 }}>
             Plan journey, Reserve bus seats, Reach destination.
           </h3>
         </div>
@@ -387,16 +385,28 @@ export default function HomePage() {
             marginLeft: 100,
           }}
         >
-          {Imagedata.slice(0, 4).map((item) => (
+          {Imagedata.map((item) => (
+            <Row>
+              <Col span={6}>
+                <img
+                  // className="col-lg-2 col-sm-3 col-md-2 col-xs-12"
+                  style={{ width: 100, height: 100 }}
+                  src={item.img}
+                  alt=""
+                />
+              </Col>
+            </Row>
+          ))}
+          {/* {Imagedata.slice(0, 4).map((item) => (
             <img
               className="col-lg-2 col-sm-3 col-md-2 col-xs-12"
               style={{ width: 100 }}
               src={item.img}
               alt=""
             />
-          ))}
+          ))} */}
         </div>
-        <div
+        {/* <div
           style={{
             display: "flex",
             justifyContent: "space-around",
@@ -413,9 +423,9 @@ export default function HomePage() {
               alt=""
             />
           ))}
-        </div>
+        </div> */}
       </div>
-      <div className="footer1" style={{ marginTop: 40 }}>
+      {/* <div className="footer1" style={{ marginTop: 40 }}>
         <div className="">
           <div className="" />
           <h2 className="text-center">Multiple Payment Options</h2>
@@ -486,7 +496,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="contant2" style={{ marginTop: 40 }}>
         <div className="">

@@ -9,12 +9,28 @@ import OnwerThree from "../BusTravellersComponent/OnwerThreeComponent/OnwerThree
 import Contact from "../ContactPage/Contact";
 import Aboutus from "../AboutUsPage/AboutUs";
 import Privacy from "../PrivacyPage/privacy";
+import Agent from "../AgentPage/Agent";
+import Offer from "../OffersPage/Offer";
+import TermsAndCondition from "../TermAndConditionPage/TermAndCondition";
+import Form from "../FormPage/Form";
 
 export default function Navigation() {
   return (
     <div>
       <BrowserRouter>
         <Switch>
+          <Route path="/Form">
+            <Form />
+          </Route>
+          <Route path="/TermsAndCondition">
+            <TermsAndCondition />
+          </Route>
+          <Route path="/Offer">
+            <Offer />
+          </Route>
+          <Route path="/Agent">
+            <Agent />
+          </Route>
           <Route path="/Privacy">
             <Privacy />
           </Route>

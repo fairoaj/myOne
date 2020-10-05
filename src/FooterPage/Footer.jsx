@@ -9,7 +9,7 @@ export default function Footer() {
     <div className="footer-container">
       <Divider />
 
-      <div className="footer">
+      <div className="custom-footer">
         <div className="footer__item">
           <a href="Help" className="footer__item--link">
             FAQ
@@ -23,22 +23,22 @@ export default function Footer() {
           <a href="Privacy" className="footer__item--link">
             Privacy
           </a>
-          <a href="#" className="footer__item--link">
+          <a href="TermsAndCondition" className="footer__item--link">
             Terms and Conditions
           </a>
         </div>
 
         <div className="footer__item">
-          <a href="#" className="footer__item--link">
+          <a href="Offer" className="footer__item--link">
             Offers
           </a>
-          <a href="#" className="footer__item--link">
+          <a href="Agent" className="footer__item--link">
             Agents
           </a>
           <a href="BusOperater" className="footer__item--link">
             Bus Operators
           </a>
-          <a href="#" className="footer__item--link">
+          <a href="Form" className="footer__item--link">
             Routes
           </a>
           <a href="#" className="footer__item--link">
