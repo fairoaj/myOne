@@ -85,7 +85,9 @@ export default function CheckoutPage() {
                   </p>
                   <ActionButton
                     text="View Seats"
-                    onClick={() => (window.location = `/seats/${item.id}`)}
+                    onClick={() =>
+                      (window.location = `/seats/${item.id}/${departure}/${arrival}/${date}`)
+                    }
                   />
                 </div>
               </Grid>

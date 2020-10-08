@@ -1,6 +1,4 @@
 import React from "react";
-import { Tooltip } from "antd";
-import { Button } from "@material-ui/core";
 
 import "./styles.css";
 
@@ -11,6 +9,7 @@ export default function Seats({
   isBooked,
   seatNumber,
   onClickHandler,
+  isSelected,
 }) {
   var backgroundColor = "";
   var color = "";
@@ -18,7 +17,10 @@ export default function Seats({
     backgroundColor = "#5cb85c";
     color = "#fff";
 
-    if (isBooked) {
+    if (isSelected) {
+      backgroundColor = "#d9534f";
+      color = "#fff";
+    } else if (isBooked) {
       backgroundColor = "#d2d2d2";
       color = "#000";
     } else if (isForLadies) {

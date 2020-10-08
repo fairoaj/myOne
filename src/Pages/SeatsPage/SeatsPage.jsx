@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { Grid, Dialog, DialogTitle, Button, Snackbar } from "@material-ui/core";
+import {
+  Grid,
+  Dialog,
+  DialogTitle,
+  Button,
+  Snackbar,
+  IconButton,
+} from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { Tooltip } from "antd";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
+import ClearIcon from "@material-ui/icons/Clear";
+import uuid from "react-uuid";
 
+import firebase from "../../config/firebase";
 import Header from "../../Components/Header/Header";
 import TitleBar from "../../Components/TitleBar/TitleBar";
 import Seats from "../../Components/Seats/Seats";
@@ -20,7 +30,7 @@ export default function SeatsPage() {
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const [total, setTotal] = useState(0);
-  const [selectedSeatNumber, setSelectedSeatNumber] = useState();
+  const [selectedSeatNumber, setSelectedSeatNumber] = useState(0);
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [passengerName, setPassengerName] = useState("");
@@ -31,6 +41,10 @@ export default function SeatsPage() {
     message: "",
   });
   const [email, setEmail] = useState("");
+  const [noValidEmail, setNoValidEmail] = useState({
+    isShow: false,
+    message: "",
+  });
   const [boardingPoint, setBoardingPoint] = useState("");
   const [emptyBoardingPoint, setEmptyBoardingPoint] = useState({
     isShow: false,
@@ -41,8 +55,10 @@ export default function SeatsPage() {
     isShow: false,
     message: "",
   });
+  const [seatEmpty, setSeatEmpty] = useState({ isShow: false, message: "" });
+  const [disableBtn, setDisableBtn] = useState(false);
 
-  const { id } = useParams();
+  const { id, arrival, departure, date } = useParams();
 
   useEffect(() => {
     const getData = () => {
@@ -98,8 +114,8 @@ export default function SeatsPage() {
         setOpen(false);
         return;
       } else {
-        data.bookedSeatNumber.push(selectedSeatNumber);
-        selectedSeat.push(selectedSeatNumber);
+        //data.bookedSeatNumber.push(selectedSeatNumber);
+        selectedSeat.push({ seat: selectedSeatNumber, gender: "M" });
         setOpen(false);
       }
     } else {
@@ -109,8 +125,8 @@ export default function SeatsPage() {
         setOpen(false);
         return;
       } else {
-        data.bookedSeatNumber.push(selectedSeatNumber);
-        selectedSeat.push(selectedSeatNumber);
+        //data.bookedSeatNumber.push(selectedSeatNumber);
+        selectedSeat.push({ seat: selectedSeatNumber, gender: "G" });
         setOpen(false);
       }
     }
@@ -127,9 +143,113 @@ export default function SeatsPage() {
     return isBooked;
   };
 
+  const checkIsSelected = (number) => {
+    var isSelected = false;
+    selectedSeat.map((item) => {
+      if (item.seat === number) {
+        isSelected = true;
+      }
+    });
+
+    return isSelected;
+  };
+
   const calculateTotal = () => {
     const costPerSeat = data.price - (data.isDiscount ? data.discount : 0);
     setTotal(costPerSeat * selectedSeat.length);
+  };
+
+  const onButtonClick = () => {
+    const isNum = /^\d+$/.test(mobileNumber);
+    const validEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/.test(
+      email
+    );
+    if (selectedSeat.length === 0) {
+      setSeatEmpty({ isShow: true, message: "Please select your seat(s)" });
+      return;
+    } else if (!passengerName) {
+      setEmptyName({ isShow: true, message: "Please fill out this field" });
+      return;
+    } else if (!mobileNumber) {
+      setEmptyMobileNumber({
+        isShow: true,
+        message: "Please fill out this field",
+      });
+      return;
+    } else if (mobileNumber.length > 10 || mobileNumber.length <= 1) {
+      setEmptyMobileNumber({
+        isShow: true,
+        message: "Please provide valid mobile number",
+      });
+      return;
+    } else if (!isNum) {
+      setEmptyMobileNumber({
+        isShow: true,
+        message: "Please provide valid mobile number",
+      });
+      return;
+    }
+    if (email) {
+      if (!validEmail) {
+        setNoValidEmail({
+          isShow: true,
+          message: "Please provide valid email address",
+        });
+        return;
+      }
+    } else if (!boardingPoint || boardingPoint === "0") {
+      setEmptyBoardingPoint({
+        isShow: true,
+        message: "Please select your boarding place",
+      });
+      return;
+    } else if (!distination || distination === "0") {
+      setEmptyDistination({
+        isShow: true,
+        message: "Please select your distination place",
+      });
+      return;
+    }
+
+    saveBookingData();
+    setDisableBtn(true);
+  };
+
+  const saveBookingData = () => {
+    setLoading(true);
+    const id = uuid();
+    const data = {
+      id: id,
+      seats: selectedSeat,
+      total: total,
+      passengerName: passengerName,
+      mobileNumber: "+94" + mobileNumber.slice(1, mobileNumber.length),
+      email: email,
+      boardingPoint: boardingPoint,
+      distination: distination,
+      departure: departure,
+      arrival: arrival,
+      isCompletePayment: false,
+    };
+
+    firebase
+      .database()
+      .ref("BookingDetails/" + id)
+      .set(data, (err) => {
+        if (err) {
+          console.log(err);
+        } else {
+          window.location = `/booking/${date}/${id}`;
+          setLoading(false);
+        }
+      });
+  };
+
+  const clearSeat = (seat) => {
+    selectedSeat.map((item, index) => {
+      if (item.seat === seat) selectedSeat.splice(index, 1);
+    });
+    console.log(selectedSeat);
   };
 
   if (loading) {
@@ -174,7 +294,12 @@ export default function SeatsPage() {
 
       <Header />
 
-      <TitleBar />
+      <TitleBar
+        departure={departure}
+        arrival={arrival}
+        date={date}
+        travels={id}
+      />
 
       <div className="seats">
         <h1>Select seats & fill the form</h1>
@@ -306,6 +431,7 @@ export default function SeatsPage() {
                     onClickHandler={() => onClickHandler(13)}
                     isForLadies={checkIsForLadies(13)}
                     isBooked={checkIsBooked(13)}
+                    isSelected={checkIsSelected(13)}
                   />
                   <Seats
                     seatNumber={14}
@@ -653,12 +779,26 @@ export default function SeatsPage() {
               </h2>
 
               <div className="seat-info ml-3">
-                <div className="seat-number d-flex">
-                  <p className="mr-5 font-weight-bold">Seats</p>
+                <div className="seat-number d-flex align-items-center">
+                  <Tooltip
+                    placement="bottom"
+                    visible={seatEmpty.isShow}
+                    onVisibleChange={() => setSeatEmpty({ isShow: false })}
+                    title={seatEmpty.message}
+                  >
+                    <p className="mr-5 font-weight-bold">Seats</p>
+                  </Tooltip>
                   <p className="text-danger">
                     {selectedSeat.length > 0
-                      ? selectedSeat.map((number, key) => (
-                          <span key={key}>{number} &nbsp;</span>
+                      ? selectedSeat.map((item, key) => (
+                          <>
+                            <span>{`${item.seat}-${item.gender}`} &nbsp;</span>
+                            <Tooltip placement="bottom" title="clear">
+                              <IconButton onClick={() => clearSeat(item.seat)}>
+                                <ClearIcon fontSize="small" />
+                              </IconButton>
+                            </Tooltip>
+                          </>
                         ))
                       : "Please select your seats"}{" "}
                   </p>
@@ -744,15 +884,22 @@ export default function SeatsPage() {
                   </Tooltip>
                 </label>
 
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  className="form-control"
-                  placeholder="user@domain.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+                <Tooltip
+                  placement="bottom"
+                  visible={noValidEmail.isShow}
+                  onVisibleChange={() => setNoValidEmail({ isShow: false })}
+                  title={noValidEmail.message}
+                >
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    className="form-control"
+                    placeholder="user@domain.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </Tooltip>
               </div>
 
               <div className="form-group">
@@ -827,7 +974,11 @@ export default function SeatsPage() {
                 </Tooltip>
               </div>
 
-              <ActionButton text="Continue to pay" />
+              <ActionButton
+                disable={disableBtn}
+                text="Continue to pay"
+                onClick={onButtonClick}
+              />
             </div>
           </Grid>
 
@@ -856,6 +1007,11 @@ export default function SeatsPage() {
               <div className="info">
                 <div className="box" style={{ backgroundColor: "#d2d2d2" }} />
                 <div className="ml-3">Already Booked</div>
+              </div>
+
+              <div className="info">
+                <div className="box" style={{ backgroundColor: "#d9534f" }} />
+                <div className="ml-3">Selected Seat</div>
               </div>
             </div>
           </Grid>

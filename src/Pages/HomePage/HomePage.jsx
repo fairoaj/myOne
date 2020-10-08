@@ -70,7 +70,7 @@ export default function HomePage() {
       return;
     }
 
-    window.location = `/checkout/${departure.value}/${arrival.value}/${journeyTime}`;
+    window.location = `/buses/${departure.value}/${arrival.value}/${journeyTime}`;
   };
 
   return (
