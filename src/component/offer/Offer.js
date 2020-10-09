@@ -5,7 +5,7 @@ import { FaRegHandPointRight } from 'react-icons/fa';
 import './Offer.css';
 
 
-export default function Offer() {
+export default function Offer() { 
 
 
 
@@ -91,6 +91,8 @@ export default function Offer() {
                 <Col span={20}>
                     <Row>
                         {data.map(offer => (
+                            (data=null?
+                                <h1>No offers</h1>:
                             <Col style={{ width: "100vw" }} lg={24} sm={23} md={23} xs={23}>
                                 <Divider/>
                                 <h3 className="h3">
@@ -104,7 +106,7 @@ export default function Offer() {
                                 </ul>
 
                             </Col>
-                        ))}
+                         ) ))}
 
                     </Row>
                 </Col>
