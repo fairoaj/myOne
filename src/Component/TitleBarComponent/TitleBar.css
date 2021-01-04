@@ -1,0 +1,16 @@
+.booking-info {
+    width: 100%;
+    background-color: rgba(142, 208, 238, 0.575);
+    border: 1px solid rgb(75, 187, 240);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.booking-info>h2 {
+    color: rgb(16, 111, 155);
+    font-weight: 200;
+    font-size: 1rem;
+}

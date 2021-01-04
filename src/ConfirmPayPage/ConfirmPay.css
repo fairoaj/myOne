@@ -1,0 +1,19 @@
+.Confirm-pay {
+    margin-top: 3rem;
+}
+
+.button {
+    transition: all 0.4s;
+}
+
+.button:hover {
+    border-radius: 10px;
+}
+
+.loading {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

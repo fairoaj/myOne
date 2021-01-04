@@ -98,7 +98,7 @@ export default function HomePage() {
       return;
     }
 
-    window.location = "/checkout";
+    window.location = `/buses/${departure.value}/${arrival.value}/${journeyTime}`;
   };
 
   // const { Option } = Select;
@@ -149,7 +149,7 @@ export default function HomePage() {
             Departure and Arrival should be different!
           </Alert>
         </Snackbar>
-        <Header />
+        {/* <Header /> */}
         <div className="booking-form">
           <h2 className="booking-form__heading">
             The simplest way to book your bus tickets in Sri Lanka

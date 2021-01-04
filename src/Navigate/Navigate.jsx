@@ -13,12 +13,19 @@ import Agent from "../AgentPage/Agent";
 import Offer from "../OffersPage/Offer";
 import TermsAndCondition from "../TermAndConditionPage/TermAndCondition";
 import Form from "../FormPage/Form";
+import ConfirmPay from "../ConfirmPayPage/ConfirmPay";
+import SeatsPage from "../Seatspage/SeatsPage";
+import CheckoutPage from "../CheckoutPage/CheckoutPage";
+import BookingPage from "../BookingPage/BookingPage";
 
 export default function Navigation() {
   return (
     <div>
       <BrowserRouter>
         <Switch>
+          <Route path="/ConfirmPay">
+            <ConfirmPay />
+          </Route>
           <Route path="/Form">
             <Form />
           </Route>
@@ -55,6 +62,15 @@ export default function Navigation() {
           <Route path="/Help">
             <Help />
           </Route>
+          <Route
+            path="/buses/:departure/:arrival/:date"
+            component={CheckoutPage}
+          />
+          <Route
+            path="/seats/:id/:departure/:arrival/:date"
+            component={SeatsPage}
+          />
+          <Route path="/booking/:date/:id" component={BookingPage} />
           <Route path="/">
             <HomePage />
           </Route>
