@@ -6,7 +6,7 @@ import { Autocomplete, Alert } from "@material-ui/lab/";
 import ActionButton from "../../Components/Button/Button";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
-import "./style.css";
+
 
 
 const options = [
@@ -165,7 +165,7 @@ export default function HomePage() {
               </Tooltip>
             </Grid>
             <Grid item sm={3} xs={12}>
-              <p style={{ color: "#777", fontWeight: "600" }}>JOURNEY DATE</p>
+              <p style={{ color: "#777", fontWeight: "600" }}>Departing</p>
               <Tooltip
                 placement="bottom"
                 onVisibleChange={() => setJourneyEmpty({ showTooltips: false })}
@@ -184,7 +184,7 @@ export default function HomePage() {
               </Tooltip>
             </Grid>
             <Grid item sm={3} xs={12}>
-              <p style={{ color: "#777", fontWeight: "600" }}>Action</p>
+              <p style={{ color: "#777", fontWeight: "600" }}>Search</p>
               <ActionButton text="Find Buses" onClick={handleSubmit} />
             </Grid>
           </Grid>

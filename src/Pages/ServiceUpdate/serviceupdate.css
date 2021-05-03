@@ -1,0 +1,64 @@
+@media (min-width: 1200px){
+.col-lg-6 {
+    width: 50%;
+}}
+
+@media (min-width: 1200px){
+.col-lg-6 {
+    float: left;
+}}
+
+.col-lg-6 {
+position: relative;
+min-height: 1px;
+padding-right: 15px;
+padding-left: 15px;
+}
+
+* {
+    
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
+body {
+    color: #484848;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6em;
+    font-weight: 300;
+    background-color: #fff;
+}
+
+html {
+    
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+:after, :before {
+    
+    box-sizing: border-box;
+}
+::selection {
+    background: #ed8323;
+    color: #fff;
+}
+
+element.style {
+    position: static;
+    visibility: visible;
+    display: inline-block;
+    width: 520px;
+    height: 600px;
+    padding: 0px;
+    border: none;
+    max-width: 100%;
+    min-width: 180px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    min-height: 200px;
+}
+

@@ -4,45 +4,55 @@ import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 
 import "./styles.css";
 
+
 export default function Footer() {
   return (
+
+   
     <div className="footer-container">
       <Divider />
 
       <div className="footer">
         <div className="footer__item">
-          <a href="#" className="footer__item--link">
-            FAQ
+
+      
+
+          <a href="/faq" className="footer__item--link">
+            FAQ 
           </a>
-          <a href="#" className="footer__item--link">
-            Contact Us
+
+          <a href="/contactus" className="footer__item--link">
+            Contact Us 
+            </a>
+
+
+          <a href="/aboutus" className="footer__item--link">
+            About Us 
           </a>
-          <a href="#" className="footer__item--link">
-            About Us
+          <a href="/privacypolicy" className="footer__item--link">
+            Privacy 
           </a>
-          <a href="#" className="footer__item--link">
-            Privacy
-          </a>
-          <a href="#" className="footer__item--link">
-            Terms and Conditions
+          <a href="/termsandcondition" className="footer__item--link">
+            Terms and Conditions 
           </a>
         </div>
 
         <div className="footer__item">
-          <a href="#" className="footer__item--link">
-            Offers
+          
+          <a href="/offers" className="footer__item--link">
+            Offers 
           </a>
-          <a href="#" className="footer__item--link">
-            Agents
+          <a href="/agents" className="footer__item--link">
+            Agents 
           </a>
-          <a href="#" className="footer__item--link">
-            Bus Operators
+          <a href="/busoperators" className="footer__item--link">
+            Bus Operators 
           </a>
-          <a href="#" className="footer__item--link">
-            Routes
+          <a href="/routes" className="footer__item--link">
+            Routes 
           </a>
-          <a href="#" className="footer__item--link">
-            Service Updates
+          <a href="/serviceupdates" className="footer__item--link">
+            Service Updates 
           </a>
         </div>
 
@@ -58,6 +68,9 @@ export default function Footer() {
             <span>BusBooking</span>
           </a>
         </div>
+      
+        
+        
       </div>
     </div>
   );
